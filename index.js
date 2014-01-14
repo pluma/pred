@@ -1,5 +1,9 @@
-/*! pred 0.1.0 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
+/*! pred 0.2.0 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
 var slice = Function.prototype.call.bind(Array.prototype.slice);
+
+function eq(target, val) {
+  return Number.isNaN(target) ? Number.isNaN(val) : val === target;
+}
 
 exports.truthy = function truthy(val) {
   return !!val;
@@ -35,7 +39,7 @@ exports.all = function all() {
 
 exports.equals = function equals(target) {
   return function equals(val) {
-    return exports.isNaN(target) ? exports.isNaN(val) : val === target;
+    return eq(target, val);
   };
 };
 
@@ -55,6 +59,17 @@ exports.deepEquals = function deepEquals(target) {
       return v === t;
     });
   };
+};
+
+exports.allEqual = function allEqual(arr) {
+  if (exports.isArrayLike(arr)) {
+    for (var i = 1; i < arr.length; i++) {
+      if (!eq(arr[i - 1], arr[i])) {
+        return false;
+      }
+    }
+  }
+  return true;
 };
 
 exports.isEmpty = function isEmpty(val) {

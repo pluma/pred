@@ -97,6 +97,10 @@ Returns `true` if the input is falsey (i.e. evaluates as boolean `false`).
 
 Returns `true` if the input is truthy (i.e. evaluates as boolean `true`).
 
+### allEqual(value):Boolean
+
+Returns `true` if the input is array-like and all of its items are equal, or if it is not array-like.
+
 ### isArray(value):Boolean
 
 Returns `true` if the given value is an `Array`.
