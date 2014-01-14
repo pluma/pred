@@ -1,5 +1,4 @@
 /*! pred 0.1.0 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
-/*jshint -W018 */
 var slice = Function.prototype.call.bind(Array.prototype.slice);
 
 exports.truthy = function truthy(val) {

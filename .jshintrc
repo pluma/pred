@@ -1,4 +1,5 @@
 {
+    "-W018": true,
     "curly": true,
     "eqeqeq": true,
     "immed": true,
