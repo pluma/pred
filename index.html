@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="pred : JavaScript predicates" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>pred</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pluma/pred">View on GitHub</a>
+
+          <h1 id="project_title">pred</h1>
+          <h2 id="project_tagline">JavaScript predicates</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pluma/pred/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pluma/pred/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="synopsis" class="anchor" href="#synopsis"><span class="octicon octicon-link"></span></a>Synopsis</h1>
+
+<p><strong>pred</strong> is a library of JavaScript predicates (functions that test their input and return a boolean).</p>
+
+<p><a href="https://travis-ci.org/pluma/pred"><img src="https://travis-ci.org/pluma/pred.png?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/r/pluma/pred?branch=master"><img src="https://coveralls.io/repos/pluma/pred/badge.png?branch=master" alt="Coverage Status"></a> <a href="http://badge.fury.io/js/pred"><img src="https://badge.fury.io/js/pred.png" alt="NPM version"></a> <a href="https://david-dm.org/pluma/pred"><img src="https://david-dm.org/pluma/pred.png" alt="Dependencies"></a></p>
+
+<h1>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h1>
+
+<h2>
+<a name="with-npm" class="anchor" href="#with-npm"><span class="octicon octicon-link"></span></a>With NPM</h2>
+
+<div class="highlight highlight-sh"><pre>npm install pred
+</pre></div>
+
+<h2>
+<a name="from-source" class="anchor" href="#from-source"><span class="octicon octicon-link"></span></a>From source</h2>
+
+<div class="highlight highlight-sh"><pre>git clone https://github.com/pluma/pred.git
+<span class="nb">cd </span>pred
+npm install
+make <span class="nb">test</span>
+</pre></div>
+
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
+
+<h2>
+<a name="complex-predicates" class="anchor" href="#complex-predicates"><span class="octicon octicon-link"></span></a>Complex predicates</h2>
+
+<h3>
+<a name="allpredicatesfunction" class="anchor" href="#allpredicatesfunction"><span class="octicon octicon-link"></span></a>all(predicates…):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if all of the predicates return <code>true</code> for the given input.</p>
+
+<h3>
+<a name="anypredicatesfunction" class="anchor" href="#anypredicatesfunction"><span class="octicon octicon-link"></span></a>any(predicates…):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if any of the predicates return <code>true</code> for the given input.</p>
+
+<h3>
+<a name="equalsvaluefunction" class="anchor" href="#equalsvaluefunction"><span class="octicon octicon-link"></span></a>equals(value):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is identical to the given value (using <code>===</code> strict equal comparison).</p>
+
+<h3>
+<a name="deepequalsvaluefunction" class="anchor" href="#deepequalsvaluefunction"><span class="octicon octicon-link"></span></a>deepEquals(value):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is equivalent to the given value.</p>
+
+<p>Example:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">deepEquals</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span> <span class="p">{</span><span class="nx">b</span><span class="o">:</span> <span class="p">[</span><span class="s1">'c'</span><span class="p">]}})({</span><span class="nx">a</span><span class="o">:</span> <span class="p">{</span><span class="nx">b</span><span class="o">:</span> <span class="p">[</span><span class="s1">'c'</span><span class="p">]}}));</span> <span class="c1">// true</span>
+</pre></div>
+
+<h3>
+<a name="greaterthanvaluenumberfunction" class="anchor" href="#greaterthanvaluenumberfunction"><span class="octicon octicon-link"></span></a>greaterThan(value:Number):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is greater than (but not equal to) the given value.</p>
+
+<h3>
+<a name="lessthanvaluenumberfunction" class="anchor" href="#lessthanvaluenumberfunction"><span class="octicon octicon-link"></span></a>lessThan(value:Number):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is less than (but not equal to) the given value.</p>
+
+<h3>
+<a name="inrangeminvaluenumber-maxvaluenumberfunction" class="anchor" href="#inrangeminvaluenumber-maxvaluenumberfunction"><span class="octicon octicon-link"></span></a>inRange(minValue:Number, maxValue:Number):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is greater than (or equal to) the given minValue but less than (but not equal to) the given maxValue.</p>
+
+<h3>
+<a name="haspropertynamestringfunction" class="anchor" href="#haspropertynamestringfunction"><span class="octicon octicon-link"></span></a>hasProperty(name:String):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is an object that has a property with the given name.</p>
+
+<h3>
+<a name="haspropertiesnamesarrayfunction" class="anchor" href="#haspropertiesnamesarrayfunction"><span class="octicon octicon-link"></span></a>hasProperties(names:Array):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is an object that has a property with each of the given names.</p>
+
+<h3>
+<a name="haspropertiespropertiesobjectfunction" class="anchor" href="#haspropertiespropertiesobjectfunction"><span class="octicon octicon-link"></span></a>hasProperties(properties:Object):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input is an object that has a property matching the given properties (name/value mapping).</p>
+
+<h3>
+<a name="matchesreregexpfunction" class="anchor" href="#matchesreregexpfunction"><span class="octicon octicon-link"></span></a>matches(re:RegExp):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input value matches the given regular expression.</p>
+
+<h3>
+<a name="isinstanceconstructorfunctionfunction" class="anchor" href="#isinstanceconstructorfunctionfunction"><span class="octicon octicon-link"></span></a>isInstance(Constructor:Function):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input value is an instance of the given constructor function.</p>
+
+<h3>
+<a name="isprototypeofobjectfunction" class="anchor" href="#isprototypeofobjectfunction"><span class="octicon octicon-link"></span></a>isPrototypeOf(object):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the input value is the prototype of the given object.</p>
+
+<h3>
+<a name="hasprototypeprotofunction" class="anchor" href="#hasprototypeprotofunction"><span class="octicon octicon-link"></span></a>hasPrototype(proto):Function</h3>
+
+<p>Returns a predicate that returns <code>true</code> if the given prototype is the prototype of the input value.</p>
+
+<h2>
+<a name="simple-predicates" class="anchor" href="#simple-predicates"><span class="octicon octicon-link"></span></a>Simple predicates</h2>
+
+<h3>
+<a name="falseyvalueboolean" class="anchor" href="#falseyvalueboolean"><span class="octicon octicon-link"></span></a>falsey(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the input is falsey (i.e. evaluates as boolean <code>false</code>).</p>
+
+<h3>
+<a name="truthyvalueboolean" class="anchor" href="#truthyvalueboolean"><span class="octicon octicon-link"></span></a>truthy(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the input is truthy (i.e. evaluates as boolean <code>true</code>).</p>
+
+<h3>
+<a name="isarrayvalueboolean" class="anchor" href="#isarrayvalueboolean"><span class="octicon octicon-link"></span></a>isArray(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is an <code>Array</code>.</p>
+
+<h3>
+<a name="isarraylikevalueboolean" class="anchor" href="#isarraylikevalueboolean"><span class="octicon octicon-link"></span></a>isArrayLike(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is an <code>Array</code> or an object with a numeric <code>length</code> property.</p>
+
+<h3>
+<a name="isbooleanvalueboolean" class="anchor" href="#isbooleanvalueboolean"><span class="octicon octicon-link"></span></a>isBoolean(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is a <code>Boolean</code>.</p>
+
+<h3>
+<a name="isemptyvalueboolean" class="anchor" href="#isemptyvalueboolean"><span class="octicon octicon-link"></span></a>isEmpty(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is falsey, an array-like object with <code>length</code> zero or an object with no properties.</p>
+
+<h3>
+<a name="isfunctionvalueboolean" class="anchor" href="#isfunctionvalueboolean"><span class="octicon octicon-link"></span></a>isFunction(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is a <code>Function</code>.</p>
+
+<h3>
+<a name="isnanvalueboolean" class="anchor" href="#isnanvalueboolean"><span class="octicon octicon-link"></span></a>isNaN(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is <code>NaN</code>.</p>
+
+<h3>
+<a name="isnullvalueboolean" class="anchor" href="#isnullvalueboolean"><span class="octicon octicon-link"></span></a>isNull(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is <code>null</code>.</p>
+
+<h3>
+<a name="isnumbervalueboolean" class="anchor" href="#isnumbervalueboolean"><span class="octicon octicon-link"></span></a>isNumber(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is a number other than <code>NaN</code>.</p>
+
+<h3>
+<a name="isobjectvalueboolean" class="anchor" href="#isobjectvalueboolean"><span class="octicon octicon-link"></span></a>isObject(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is an <code>object</code> other than <code>null</code>.</p>
+
+<h3>
+<a name="isplainobjectvalueboolean" class="anchor" href="#isplainobjectvalueboolean"><span class="octicon octicon-link"></span></a>isPlainObject(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is an instance of <code>Object</code>.</p>
+
+<h3>
+<a name="isstringvalueboolean" class="anchor" href="#isstringvalueboolean"><span class="octicon octicon-link"></span></a>isString(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is a <code>string</code>.</p>
+
+<h3>
+<a name="isundefinedvalueboolean" class="anchor" href="#isundefinedvalueboolean"><span class="octicon octicon-link"></span></a>isUndefined(value):Boolean</h3>
+
+<p>Returns <code>true</code> if the given value is <code>undefined</code>.</p>
+
+<h1>
+<a name="unlicense" class="anchor" href="#unlicense"><span class="octicon octicon-link"></span></a>Unlicense</h1>
+
+<p>This is free and unencumbered public domain software. For more information, see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying <a href="https://github.com/pluma/pred/blob/master/UNLICENSE">UNLICENSE</a> file.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">pred maintained by <a href="https://github.com/pluma">pluma</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
