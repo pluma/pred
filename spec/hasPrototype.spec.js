@@ -3,7 +3,7 @@ var expect = require('expect.js'),
   hasPrototype = require('../').hasPrototype;
 
 describe('pred.hasPrototype(obj)', function() {
-  function Ctor() {};
+  function Ctor() {}
   var obj = new Ctor();
   it('is a function', function() {
     expect(hasPrototype).to.be.a('function');

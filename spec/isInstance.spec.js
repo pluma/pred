@@ -3,7 +3,7 @@ var expect = require('expect.js'),
   isInstance = require('../').isInstance;
 
 describe('pred.isInstance(Constructor)', function() {
-  function Ctor() {};
+  function Ctor() {}
   it('is a function', function() {
     expect(isInstance).to.be.a('function');
   });

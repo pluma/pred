@@ -3,7 +3,7 @@ var expect = require('expect.js'),
   isPrototypeOf = require('../').isPrototypeOf;
 
 describe('pred.isPrototypeOf(obj)', function() {
-  function Ctor() {};
+  function Ctor() {}
   var obj = new Ctor();
   it('is a function', function() {
     expect(isPrototypeOf).to.be.a('function');
