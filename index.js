@@ -1,4 +1,4 @@
-/*! pred 0.2.0 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
+/*! pred 0.2.1 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
 var slice = Function.prototype.call.bind(Array.prototype.slice);
 
 function eq(target, val) {

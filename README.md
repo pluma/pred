@@ -2,7 +2,11 @@
 
 **pred** is a library of JavaScript predicates (functions that test their input and return a boolean).
 
-[![Build Status](https://travis-ci.org/pluma/pred.png?branch=master)](https://travis-ci.org/pluma/pred) [![Coverage Status](https://coveralls.io/repos/pluma/pred/badge.png?branch=master)](https://coveralls.io/r/pluma/pred?branch=master) [![NPM version](https://badge.fury.io/js/pred.png)](http://badge.fury.io/js/pred) [![Dependencies](https://david-dm.org/pluma/pred.png)](https://david-dm.org/pluma/pred)
+[![stability 2 - unstable](http://b.repl.ca/v1/stability-2_--_unstable-yellow.png)](http://nodejs.org/api/documentation.html#documentation_stability_index) [![license - Unlicense](http://b.repl.ca/v1/license-Unlicense-lightgrey.png)](http://unlicense.org/) [![Flattr this](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=pluma&url=https://github.com/pluma/pred)
+
+[![Build Status](https://travis-ci.org/pluma/pred.png?branch=master)](https://travis-ci.org/pluma/pred) [![Coverage Status](https://coveralls.io/repos/pluma/pred/badge.png?branch=master)](https://coveralls.io/r/pluma/pred?branch=master) [![Dependencies](https://david-dm.org/pluma/pred.png?theme=shields.io)](https://david-dm.org/pluma/pred)
+
+[![NPM status](https://nodei.co/npm/pred.png?compact=true)](https://npmjs.org/package/pred)
 
 # Install
 
